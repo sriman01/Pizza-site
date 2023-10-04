@@ -22,7 +22,7 @@ export default function Top() {
                 </div>
                 <div className='flex items-center bg-slate-300 w-[120px] md:w-[200px] rounded-lg py-1 h-[40px]'>
                     <div className='text-2xl pl-2 pr-1  text-slate-500'><ion-icon name="search"></ion-icon></div>
-                    <input className='font-semibol w-[120px] outline-none bg-transparent border-none text-xl text-slate-500 '
+                    <input className='font-semibol w-[100px] outline-none bg-transparent border-none text-xl text-slate-500 '
                         value={search}
                         onChange={(e) => dispatch(updateSearch(e.target.value))}
                         type='text'
