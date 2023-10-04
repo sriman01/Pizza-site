@@ -1,15 +1,17 @@
 import React, {useEffect, useRef} from 'react'
 import MiniCard from '../miniCard/MiniCard'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { updateCartVisible } from '../../redux/buttonSlice/buttonSlice';
 export default function RightBar() {
+    const dispatch = useDispatch();
     
     const cartItems = useSelector(state => state.counter.cart);
     const TotalPrice = cartItems.reduce((accu, curr) => accu + curr.price, 0)
 
     return (
-        <div className=' w-[100%] pl-5 py-10 shadow-lg rounded-lg'>
-            <div className='flex justify-between items-center w-[20rem]'>
+        <div className=' w-[100%] over-flow-y-scroll sm:w-[50%] sm:h-[80%] lg:hidden pl-5 py-5 shadow-lg rounded-lg bg-slate-50 bg-opacity-100'>
+                <div onClick={() => dispatch(updateCartVisible())}  className='relative top-0 text-2xl font-bold text-red-500'> <ion-icon name="close"></ion-icon> </div>
+            <div className='flex justify-between items-center w-[20rem] py-3'>
                 <div className='flex items-center gap-5 w-[12rem]'>
                     <div>
                         <img className='rounded-full w-[3rem] h-[3rem] shadow-md' src='/profile.jpeg' alt='profile-pic' />
@@ -24,10 +26,10 @@ export default function RightBar() {
                 <img src='cart.png' />
             </div>
 
-              <div className='flex justify-between'>
+              <div className='flex justify-between items-center w-[20rem] py-3'>
 
                 <div className='ml-1 text-2xl font-bold pb-3'> Cart Items</div>
-                <div className='mr-5 mt-1 text-orange-500 text-xl font-bold pb-3'>Qnt: {cartItems.length}</div>
+                <div className='mt-1 text-orange-500 text-xl font-bold pb-3'>Qnt: {cartItems.length}</div>
               </div>
             
             <div

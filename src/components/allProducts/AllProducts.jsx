@@ -8,12 +8,12 @@ export default function () {
     const search = useSelector(state => state.counter.search);
     
     return (
-        <div className='flex flex-wrap gap-10 justify-center  mt-10 shadow-inner py-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 justify-center  mt-10 py-10 m-3'>
             {products.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
             .map((item, index) => {
                 let desc = item.desc.slice(0, 20)
                 return(
-                <div key={index} className='relative flex items-center gap-5 bg-slate-100  overflow-hidden rounded-xl w-1/4'>
+                <div key={index} className='relative flex items-center gap-5 bg-slate-100  overflow-hidden rounded-xl'>
                     <div className=' -mt-3 -ml-10 w-40'>
                         <img className=' rounded-full ' src={item.img} alt='item-img' />
                     </div>

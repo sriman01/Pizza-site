@@ -6,7 +6,9 @@ const buttonSlice = createSlice({
     initialState : {
         search : '',
         cart : [],
-        allProductFlag : true,
+        allProductFlag : false,
+        menuVisible : false,
+        cartVisible: false
     },
 
     reducers : {
@@ -25,10 +27,17 @@ const buttonSlice = createSlice({
 
         updateSearch(state, action){
             state.search = action.payload;
+        }, 
+        updateMenuVisible(state){
+            state.menuVisible = !state.menuVisible;
+        },
+        updateCartVisible(state){
+               state.menuVisible = false;
+               state.cartVisible = !state.cartVisible;
         }
     }
     
 })
 
-export const {addToCart, deleteFromCart, allProductHandler, updateSearch} = buttonSlice.actions;
+export const {addToCart, deleteFromCart, allProductHandler, updateSearch, updateCartVisible, updateMenuVisible} = buttonSlice.actions;
 export default buttonSlice.reducer;
