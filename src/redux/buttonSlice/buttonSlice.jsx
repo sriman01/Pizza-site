@@ -4,24 +4,31 @@ import {createSlice} from '@reduxjs/toolkit'
 const buttonSlice = createSlice({
     name : 'counter',
     initialState : {
-        counter : 0
+        search : '',
+        cart : [],
+        allProductFlag : true,
     },
 
     reducers : {
-        increment(state){
-             state.counter += 1;
+        addToCart(state, action){
+             state.cart.push(action.payload);
         },
 
-        
+        deleteFromCart(state, action){
+             console.log(action.payload.id)
+             state.cart = state.cart.filter((item) => item.id !== action.payload.id)  
+        },
 
-        decrement(state){
-             state.counter -= 1;
+        allProductHandler(state){
+              state.allProductFlag = !state.allProductFlag;
+        },
+
+        updateSearch(state, action){
+            state.search = action.payload;
         }
     }
     
 })
 
-console.log(buttonSlice)
-
-export const {increment, decrement} = buttonSlice.actions;
+export const {addToCart, deleteFromCart, allProductHandler, updateSearch} = buttonSlice.actions;
 export default buttonSlice.reducer;
