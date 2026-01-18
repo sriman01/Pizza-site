@@ -11,13 +11,7 @@ export default function App() {
   console.log(allProductFlag)
   return (
       <div className='flex flex-col'>
-         <Main  />
-         {allProductFlag ?
-         <div className='w-[100%]'>
-            <AllProducts /> 
-         </div> 
-         : ''}
-         <Footer />
+         Ramu Kaka phir se
       </div>
       // <PopupSideBar />
       // <PopCart />
